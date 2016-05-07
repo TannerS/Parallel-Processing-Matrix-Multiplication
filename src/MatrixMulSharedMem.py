@@ -1,12 +1,10 @@
 from multiprocessing import Pool, Array
 import random
 import time
-import math
 
 # method to do multiplication of matrix
 from multiprocessing.context import Process
-
-
+# matrix mul function
 def matrixMul(A, itr, block, size, col, result):
     # start a loop to loop size of the block
     for i in range (0, block):
@@ -22,11 +20,12 @@ def matrixMul(A, itr, block, size, col, result):
             temp = temp + A[itr * block + i][j] * col[j]
         result[itr * block + i] = temp
         time.sleep((1/size));
-
-
+# main program
 if __name__ == '__main__':
     # get input
     n = int(input("Enter number of nodes: "))
+    # take time
+    start_time = time.time()
     # empty list of arrays
     matrix = []
     # loop and append an array of ints (i) of random numbers from j to n where it ents n numbers into that array
@@ -78,7 +77,7 @@ if __name__ == '__main__':
     for i in range (0,n):
         print(result[i])
     """
-
+    print('Total time: ', (time.time() - start_time))
 
 
 
